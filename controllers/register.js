@@ -5,6 +5,7 @@ const handleRegister = (req, res, db, bcrypt) => {
 	}
 	const hash = bcrypt.hashSync(password);
 	db.transaction(trx => {
+		console.log('initiating transaction');
 		trx.insert({
 			hash: hash,
 			email: email.toLowerCase()
@@ -27,7 +28,7 @@ const handleRegister = (req, res, db, bcrypt) => {
 		.catch(trx.rollback)
 	})
 	.catch(err => {
-		res.status(400).json('Unable to join')
+		res.status(400).json('Unable to join: ' + err)
 	});
 }
 
