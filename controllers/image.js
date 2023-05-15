@@ -1,5 +1,3 @@
-import fetch from "node-fetch";
-
 const handleApiCall = (req, res) => {
 	const raw = JSON.stringify({
 	  "user_app_id": {

@@ -5,6 +5,7 @@ const express = require('express');
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex');
+const fetch = require('node-fetch');
 // Controllers
 const signin = require('./controllers/signin.js');
 const register = require('./controllers/register.js');
@@ -33,7 +34,7 @@ app.get('/', (req, res) => { res.send('site is working!') });
 app.post('/signin', (req, res) => { signin.handleSignIn(req, res, db, bcrypt) });
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) });
 app.get('/profile/:id', (req, res) => { profile.handleProfileGet(req, res, db) });
-app.put('/image', (req, res) => { image.handleImage(req, res, db) });
+app.put('/image', (req, res) => { image.handleImage(req, res, db, fetch) });
 app.post('/imageurl', (req, res) => { image.handleApiCall(req, res) });
 // Listen
 app.listen(PORT, () => {
