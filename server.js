@@ -18,7 +18,8 @@ const db = knex({
 		port: '25060',
 		user : 'db',
 		password: 'AVNS_Ih0tsSOOUIgoZ8sK6kz',
-		database: 'db'
+		database: 'db',
+		sslmode: 'require'
 	}
 });
 // Express
