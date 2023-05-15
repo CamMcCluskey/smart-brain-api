@@ -26,6 +26,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 // Endpoints
+app.get('/', (req, res) => { res.send('site is working!') });
 app.post('/signin', (req, res) => { signin.handleSignIn(req, res, db, bcrypt) });
 app.post('/register', (req, res) => { register.handleRegister(req, res, db, bcrypt) });
 app.get('/profile/:id', (req, res) => { profile.handleProfileGet(req, res, db) });
