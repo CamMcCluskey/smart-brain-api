@@ -1,3 +1,5 @@
+const fetch = require('node-fetch');
+
 const handleApiCall = (req, res) => {
 	const raw = JSON.stringify({
 	  "user_app_id": {
@@ -25,7 +27,7 @@ const handleApiCall = (req, res) => {
 	};
 
 	fetch(`https://api.clarifai.com/v2/models/face-detection/versions/6dc7e46bc9124c5c8824be4822abe105/outputs`, requestOptions)
-	  // .then(response => response.json())
+	  .then(response => response.json())
 	  .then(data => {
 	  	res.json(data);
 	  })
