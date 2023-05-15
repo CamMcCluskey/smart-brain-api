@@ -19,7 +19,7 @@ const db = knex({
 		user : 'db',
 		password: 'AVNS_Ih0tsSOOUIgoZ8sK6kz',
 		database: 'db',
-		sslmode: 'require'
+		ssl: 'true'
 	}
 });
 // Express
