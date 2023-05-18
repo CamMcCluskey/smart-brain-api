@@ -27,17 +27,17 @@ const db = knex({
 	}
 });
 
-const db = knex({
-	client: 'pg',
-	connection: {
-		host: DATABASE_URL,
-		port: DB_PORT,
-		user : DB_USER,
-		password: DB_PASS,
-		database: DB_NAME,
-		ssl: 'true'
-	}
-});
+// const db = knex({
+// 	client: 'pg',
+// 	connection: {
+// 		host: DATABASE_URL,
+// 		port: DB_PORT,
+// 		user : DB_USER,
+// 		password: DB_PASS,
+// 		database: DB_NAME,
+// 		ssl: 'true'
+// 	}
+// });
 // Express
 const app = express();
 app.use(express.json());
