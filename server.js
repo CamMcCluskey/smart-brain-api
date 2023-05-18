@@ -12,13 +12,13 @@ const register = require('./controllers/register.js');
 const profile = require('./controllers/profile.js');
 const image = require('./controllers/image.js');
 // Database
-const DATABASE_URL = process.env.DATABASE_URL;
+const DB_HOST = process.env.DB_HOST;
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 
 const db = knex({
 	client: 'pg',
 	connection: {
-		host: DATABASE_URL,
+		host: DB_HOST,
 		port: '25060',
 		user : 'db',
 		password: 'AVNS_Ih0tsSOOUIgoZ8sK6kz',
