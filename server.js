@@ -12,7 +12,12 @@ const register = require('./controllers/register.js');
 const profile = require('./controllers/profile.js');
 const image = require('./controllers/image.js');
 // Database
-const { DB_HOST, DB_PORT, DB_USER, DB_PASS, DB_NAME } = process.env;
+// const { DB_HOST, DB_PORT, DB_USER, DB_PASS, DB_NAME } = process.env;
+const DB_HOST = process.env.DB_HOST;
+const DB_PORT = process.env.DB_PORT;
+const DB_USER = process.env.DB_USER;
+const DB_PASS = process.env.DB_PASS;
+const DB_NAME = process.env.DB_NAME;
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 
 const db = knex({
