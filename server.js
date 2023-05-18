@@ -12,16 +12,18 @@ const register = require('./controllers/register.js');
 const profile = require('./controllers/profile.js');
 const image = require('./controllers/image.js');
 // Database
+const { DATABASE_URL, DB_PORT, DB_USER, DB_PASS, DB_NAME } = process.env;
+
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 
 const db = knex({
 	client: 'pg',
 	connection: {
-		host: 'app-b19018ba-9ead-45c9-95e2-682b39933dab-do-user-13705780-0.b.db.ondigitalocean.com',
-		port: '25060',
-		user : 'db',
-		password: 'AVNS_Ih0tsSOOUIgoZ8sK6kz',
-		database: 'db',
+		host: DATABASE_URL,
+		port: DB_PORT,
+		user : DB_USER,
+		password: DB_PASS,
+		database: DB_NAME,
 		ssl: 'true'
 	}
 });
