@@ -1,5 +1,9 @@
 const PORT = process.env.PORT;
-
+const ENV = process.env.ENV;
+const isDev = (res) => {
+	ENV === "dev" ? res = true : res = false;
+	return res;
+}
 // Dependencies
 const express = require('express');
 const bcrypt = require('bcrypt-nodejs');
@@ -12,14 +16,12 @@ const register = require('./controllers/register.js');
 const profile = require('./controllers/profile.js');
 const image = require('./controllers/image.js');
 // Database
-// const { DB_HOST, DB_PORT, DB_USER, DB_PASS, DB_NAME } = process.env;
 const DB_HOST = process.env.DB_HOST;
 const DB_PORT = process.env.DB_PORT;
 const DB_USER = process.env.DB_USER;
 const DB_PASS = process.env.DB_PASS;
 const DB_NAME = process.env.DB_NAME;
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
-
 const db = knex({
 	client: 'pg',
 	connection: {
@@ -28,7 +30,7 @@ const db = knex({
 		user : DB_USER,
 		password: DB_PASS,
 		database: DB_NAME,
-		ssl: 'true'
+		ssl: !isDev()
 	}
 });
 // Express
