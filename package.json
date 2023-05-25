@@ -5,7 +5,7 @@
   "main": "script.js",
   "scripts": {
     "start": "node server.js",
-    "start:dev": "cross-env PORT=3000 DB_HOST=localhost DB_PORT=5432 DB_USER=postgres DB_PASS=5JzRjJuHwcgWZa4tE842 DB_NAME=smart-brain ENV=dev nodemon server.js"
+    "start:dev": "cross-env PORT=3000 DB_HOST=localhost DB_PORT=5432 DB_USER=postgres DB_PASS=5JzRjJuHwcgWZa4tE842 DB_NAME=smart-brain ENV=dev API_KEY=ccebc73580ab45c994bc710eee9dc5c1 API_URL=https://api.clarifai.com/v2/models/face-detection/versions/6dc7e46bc9124c5c8824be4822abe105/outputs nodemon server.js"
   },
   "author": "",
   "license": "ISC",

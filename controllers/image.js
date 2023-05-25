@@ -1,3 +1,6 @@
+const API_KEY = process.env.API_KEY;
+const API_URL = process.env.API_URL;
+
 const handleApiCall = (req, res, fetch) => {
 	const raw = JSON.stringify({
 	  "user_app_id": {
@@ -19,12 +22,12 @@ const handleApiCall = (req, res, fetch) => {
 	  method: 'POST',
 	  headers: {
 	      'Accept': 'application/json',
-	      'Authorization': 'Key ' + 'ccebc73580ab45c994bc710eee9dc5c1'
+	      'Authorization': 'Key ' + API_KEY
 	  },
 	  body: raw
 	};
 
-	fetch(`https://api.clarifai.com/v2/models/face-detection/versions/6dc7e46bc9124c5c8824be4822abe105/outputs`, requestOptions)
+	fetch(API_URL, requestOptions)
 	  .then(response => response.json())
 	  .then(data => {
 	  	res.json(data);
